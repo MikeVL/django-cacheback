@@ -1,13 +1,13 @@
 import collections
 import hashlib
 import logging
+import six
 import time
 import warnings
 
 from django.conf import settings
 from django.core.cache import DEFAULT_CACHE_ALIAS, caches
 from django.db.models import Model as DjangoModel
-from django.utils import six
 from django.utils.deprecation import RenameMethodsBase
 from django.utils.itercompat import is_iterable
 

@@ -1,8 +1,15 @@
-from functools import wraps
-
-from django.utils.decorators import available_attrs
+from functools import WRAPPER_ASSIGNMENTS, wraps
 
 from .jobs import FunctionJob
+
+
+def available_attrs(fn):
+    """
+    Return the list of functools-wrappable attributes on a callable.
+    This was required as a workaround for https://bugs.python.org/issue3445
+    under Python 2.
+    """
+    return WRAPPER_ASSIGNMENTS
 
 
 def cacheback(lifetime=None, fetch_on_miss=None, cache_alias=None,
